@@ -5,7 +5,7 @@ const env = require("dotenv").config()
 
 exports.profile =  async(req, res) => {
     try {
-        const user = await User.findOne({email: req.body.email})
+        const user = await User.findOne({email: req.user.email})
         res.status(200).json({
             _id: user._id,
             name: user.name,
