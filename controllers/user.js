@@ -63,13 +63,15 @@ exports.login = async (req, res) => {
             _id: user._id,
             name: user.name,
             email: user.email,
+            isAdmin: user.isAdmin
         }, process.env.ACCESS_TOKEN_SECRET)
 
         res.status(200).json({
             token: token,
             _id: user._id,
             name: user.name,
-            email: user.email
+            email: user.email,
+            isAdmin: user.isAdmin
         })
     }
     catch (err) {
