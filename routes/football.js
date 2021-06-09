@@ -12,7 +12,12 @@ const storage = multer.diskStorage({
 })
 
 const upload = multer({
-    storage: storage
+    storage: storage,
+    fileFilter: (req, file, cb) => {
+        const ext = path.extname(file.originalname)
+        if (ext !== ".xlsx") return cb(new Error("Only .xlsx files are allowed"))
+        cb(null, true)
+    }
 })
 
 router.get("/matches", football.getMatches)

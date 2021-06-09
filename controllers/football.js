@@ -9,7 +9,7 @@ exports.upload = async (req, res) => {
         const workSheet = workbook.Sheets["Sheet1"]
         const data = xlsx.utils.sheet_to_json(workSheet)
 
-        console.log(data);
+        await Football.remove()
 
         Football.insertMany(data)
         .then(() => {
