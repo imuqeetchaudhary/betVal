@@ -86,3 +86,20 @@
     matchId:
 }
 ```
+
+## Routes for winning users
+### to check winning status for a specific authenticated user
+- won-users/get :get
+```
+{
+    matchId:
+}
+```
+
+### to check all winning users
+- won-users/ :get
+```
+{
+    matchId:
+}
+```
