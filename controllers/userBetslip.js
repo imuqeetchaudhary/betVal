@@ -2,7 +2,14 @@ const { UserBetslip } = require("../db/models/userBetslip")
 
 exports.getUserBetslip = async (req, res) => {
     try {
-        res.json("Hello World!")
+        const userBetslip = await UserBetslip.find({ userId: req.user._id })
+        if (!userBetslip) return res.status(404).json({
+            message: "No betslip found"
+        })
+
+        res.status(200).json({
+            betslips: userBetslip
+        })
     }
     catch (err) {
         res.status(400).json({
