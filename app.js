@@ -6,6 +6,7 @@ const football = require("./routes/football")
 const userBalance = require("./routes/userBalance")
 const userBetslip = require("./routes/userBetslip")
 const matchResult = require("./routes/matchResult")
+const wonUsers = require("./routes/wonUsers")
 
 const app = express()
 
@@ -17,6 +18,7 @@ app.use("/football", football)
 app.use("/user-balance", userBalance)
 app.use("/user-betslip", userBetslip)
 app.use("/match-result", matchResult)
+app.use("/won-users", wonUsers)
 
 const port = 4000
 app.listen(port, () => {
