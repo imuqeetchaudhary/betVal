@@ -3,6 +3,7 @@ const router = express.Router()
 const football = require("../controllers/football")
 const multer = require("multer")
 const path = require("path")
+const { authentication } = require("../middlewares/isAuth")
 
 const storage = multer.diskStorage({
     destination: "./upload/xlsxFiles",
@@ -21,6 +22,6 @@ const upload = multer({
 })
 
 router.get("/matches", football.getMatches)
-router.post("/upload", upload.single("file"), football.upload)
+router.post("/upload", authentication, upload.single("file"), football.upload)
 
 module.exports = router
