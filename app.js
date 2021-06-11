@@ -7,11 +7,14 @@ const userBalance = require("./routes/userBalance")
 const userBetslip = require("./routes/userBetslip")
 const matchResult = require("./routes/matchResult")
 const wonUsers = require("./routes/wonUsers")
+const cors = require("cors")
 
 const app = express()
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
+
+app.use(cors())
 
 app.use("/user", user)
 app.use("/football", football)
